@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flex</title>
+    <style>
+      h1{
+        text-align: center;
+      }
+
+      #parent{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 20px;
+        background-color:rgb(182, 225, 241);
+        margin:auto;
+        padding: 20px;
+        width: 60%;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 20px;
+      }
+
+      #parent>div{
+        border-radius: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        padding: 10px;
+        width: 25%;
+        background-color: white;
+        height: 100%;
+    
+
+      }
+      h4{
+        color: blue;
+      }
+       
+       
+    </style>
+</head>
+<body>
+    <h1>Hiring Facts</h1>
+    <div id="parent">
+        <div class="child">
+            <img src="https://www.masaischool.com/images/hire-masai-grads/HiringFacts/hiring-facts-1.svg" alt="">
+            <p>Hiring Process </p>
+            <h4> < 3 Days </h4>
+        </div>
+        <div class="child">
+            <img src="https://www.masaischool.com/images/hire-masai-grads/HiringFacts/hiring-facts-2.svg" alt="">
+            <p>Offer Acceptance</p>
+            <h4>90%</h4>
+        </div>
+        <div class="child">
+           <img src="https://www.masaischool.com/images/hire-masai-grads/HiringFacts/hiring-facts-3.svg" alt="">
+            <p>Retention Rate</p>
+            <h4>93%</h4>
+        </div>
+        <div class="child">
+           <img src="https://www.masaischool.com/images/hire-masai-grads/HiringFacts/hiring-facts-4.svg" alt="">
+            <p>Hiring Partners</p>
+            <h4>4000+</h4>
+        </div>
+        <div class="child">
+            <img src="https://www.masaischool.com/images/hire-masai-grads/HiringFacts/hiring-facts-5.svg" alt="">
+            <p>Year Round</p>
+            <p>Availability</p>
+            
+        </div>
+    </div>
+</body>
+</html>

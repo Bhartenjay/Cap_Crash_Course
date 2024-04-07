@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+<style>
+    
+    #container{
+        border: 2px solid black;
+        text-align: center;
+        margin: auto;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+        background-color: rgb(48, 60, 48);
+        width: 30%;
+        border-radius: 20px;
+        
+        
+    }
+    #inp1, #inp2{
+        border-color: blueviolet;
+        color: darkviolet;
+        text-align: center;
+        background-color: rgb(215, 215, 147);
+        border-radius: 10px;
+        
+    }
+
+    #add, #subtract, #divide, #multiply{
+        border-radius: 10px;
+        background-color: mediumaquamarine;
+        color: rgb(59, 3, 3);       
+    }
+    #result{
+        border-radius: 10px;
+        text-align: center;
+    }
+</style>
+
+</head>
+<body>
+    <div id="container">
+        <div id="inputs">
+            <input id="inp1" type="number" placeholder="Enter 1st Number" >
+            <input id="inp2" type="number" placeholder="Enter 2nd Number">
+        </div>
+        <div id="buttons">
+            <button id="add">Add</button>
+            <button id="subtract">Subtract</button>
+            <button id="divide">Divide</button>
+            <button id="multiply">Multiply</button>
+        </div>
+        <div><input id="result" placeholder="Result Here" type="text"></div>
+    </div>
+</body>
+</html>
+<script>
+    let inp1 = document.getElementById("inp1");
+    let inp2 = document.getElementById("inp2");
+    let add = document.getElementById("add");
+    let subtract = document.getElementById("subtract");
+    let divide = document.getElementById("divide");
+    let multiply = document.getElementById("multiply");
+    let result = document.getElementById("result");
+    result.value = ""
+    add.addEventListener("click", function(){
+      let add = Number(inp1.value) + Number(inp2.value)
+      console.log(add)
+      result.value = add
+      alert(add)
+      
+    })
+
+    subtract.addEventListener("click", function(){
+      let subtract= Number(inp1.value) - Number(inp2.value)
+      console.log(subtract);
+      result.value = subtract;
+      alert(subtract)
+    })
+
+    divide.addEventListener("click", function(){
+      let divide = Number(inp1.value) / Number(inp2.value)
+      console.log(divide);
+      result.value = divide;
+      alert(divide)
+    })
+
+    multiply.addEventListener("click", function(){
+      let multiply = Number(inp1.value) * Number(inp2.value)
+      console.log(multiply);
+      result.value = multiply;
+      alert(multiply)
+    })
+
+    
+
+
+</script>

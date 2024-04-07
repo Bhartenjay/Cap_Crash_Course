@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Shedule Time Table</title>
+    <style>
+        body{
+            margin: 20px;
+            width: 90%;
+            border: 2px solid red;
+        }
+        #header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-evenly;
+         
+            margin: auto;
+            border: 2px soild black;
+        }
+        img{
+         
+         
+         width: 140px; 
+         border: 2px soild blue;
+         width: 200px;
+       }
+
+        #header>div{
+            display: flex;
+            margin: auto;
+            border-color: 2px soild green;
+        }
+        h1{
+            font-size: 60px;
+            font-family:'Courier New', Courier, monospace ;
+            text-align: center;
+           
+        }
+        #table{
+            display: grid;
+            grid-template-columns: repeat(6,1fr);
+            gap: 10px;         
+           /* margin: auto; */
+           padding: 20px;
+            justify-content: center;
+            align-items: center;           
+            border: 2px soild red;
+            border-color: red;
+            text-align: center;
+            border-radius: 10px;
+          
+        }
+        
+
+        #first_box{
+            visibility: hidden;
+        }
+        #last_box{            
+            margin: 20px;     
+            border-radius: 20px;
+            padding: 5px;
+            width: 94%;
+           
+        }
+        .sky_blue{
+            background-color: skyblue;
+            
+        }
+        .pink{background-color: pink;}
+
+        .yellow{
+            background-color: rgb(241, 241, 126);
+        }
+        #table>div{
+         border-radius: 20px;
+         width: 150px;
+         height: 30px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+
+         
+        }
+        body{
+            margin: auto;
+        }
+        #header>img~img{
+            width: 100px;
+            margin: 20px;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4HqNQTUcc7sKSZjENkxyu-Pd1lzR-VRkcfw&usqp=CAU" alt="">
+       <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcReWpv2SkuiV9kipchHeIt_J_dHycYNJIeZkxiQ_Zn6Pv5EmOx1" alt="star logo">
+        <div><h1>Weekly Shedule</h1></div>
+        <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcReWpv2SkuiV9kipchHeIt_J_dHycYNJIeZkxiQ_Zn6Pv5EmOx1" alt="star logo">
+    
+    </div>
+
+    <div id="table">
+        <div id="first_box"></div>
+        <div class="pink">Monday</div>
+        <div class="yellow">Tuesday</div>
+        <div class="pink">Wednesday</div>
+        <div class="yellow">Thursday</div>
+        <div class="pink">Friday</div>
+        <div class="sky_blue">08:00</div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="sky_blue">09:00</div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="sky_blue">10:00</div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="sky_blue">11:00</div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="sky_blue">12:00</div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="sky_blue">13:00</div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="sky_blue">14:00</div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="sky_blue">15:00</div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="sky_blue">16:00</div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        <div class="yellow"></div>
+        <div class="pink"></div>
+        
+    </div>
+    <div id="last_box" class="sky_blue">Notes:</div>
+</body>
+</html>
