@@ -1,58 +1,79 @@
-const baseUrl = 'https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-employees';
+const baseURL = 'https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-employees';
 let currentPage = 1;
 
-function fetchData(page = 1, limit = 10, filterBy = '', filterValue = '', sort = '', order = '') {
-  let url = `${baseUrl}?page=${page}&limit=${limit}`;
-  if (filterBy && filterValue) {
-    url += `&filterBy=${filterBy}&filterValue=${filterValue}`;
-  }
-  if (sort && order) {
-    url += `&sort=${sort}&order=${order}`;
-  }
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('departmentFilter').addEventListener('change', fetchDataIfAllSelected);
+    document.getElementById('genderFilter').addEventListener('change', fetchDataIfAllSelected);
+    document.getElementById('sortOrder').addEventListener('change', fetchDataIfAllSelected);
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            fetchDataIfAllSelected();
+        }
+    });
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        currentPage++;
+        fetchDataIfAllSelected();
+    });
+});
 
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      displayData(data);
-    })
-    .catch(error => console.error('Error fetching data:', error));
+async function fetchDataIfAllSelected() {
+    const department = document.getElementById('departmentFilter').value;
+    const gender = document.getElementById('genderFilter').value;
+    const sortOrder = document.getElementById('sortOrder').value;
+
+    if (department && gender && sortOrder) {
+        await fetchData(department, gender, sortOrder);
+    }
 }
 
-function displayData(data) {
-  const tableBody = document.getElementById('employeeData');
-  tableBody.innerHTML = '';
+async function fetchData(department, gender, sortOrder) {
+    try {
+      const response = await fetch(`${baseURL}?page=${currentPage}&limit=10&filterBy=department&filterValue=${department}&filterBy=gender&filterValue=${gender}&sort=salary&order=${sortOrder}`);
 
-  data.forEach((employee, index) => {
-    const row = `<tr>
-                  <td>${index + 1}</td>
-                  <td>${employee.name}</td>
-                  <td>${employee.gender}</td>
-                  <td>${employee.department}</td>
-                  <td>${employee.salary}</td>
-                </tr>`;
-    tableBody.innerHTML += row;
-  });
+        const responseData = await response.json();
+
+        if (responseData && responseData.data && responseData.totalPages) {
+            renderTable(responseData.data);
+            renderPagination(responseData.totalPages);
+        } else {
+            console.error('Invalid response data:', responseData);
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
 
-document.getElementById('departmentFilter').addEventListener('change', (event) => {
-  const department = event.target.value;
-  fetchData(1, 10, 'department', department);
-});
 
-document.getElementById('genderFilter').addEventListener('change', (event) => {
-  const gender = event.target.value;
-  fetchData(1, 10, 'gender', gender);
-});
+function renderTable(employees) {
+    const tableBody = document.getElementById('employeeData');
+    tableBody.innerHTML = '';
 
-document.getElementById('salarySort').addEventListener('change', (event) => {
-  const order = event.target.value;
-  fetchData(1, 10, '', '', 'salary', order);
-});
+    employees.forEach((employee, index) => {
+        const row = `<tr>
+            <td>${index + 1}</td>
+            <td>${employee.name}</td>
+            <td>${employee.gender}</td>
+            <td>${employee.department}</td>
+            <td>${employee.salary}</td>
+        </tr>`;
+        tableBody.innerHTML += row;
+    });
+}
 
-// Initial data fetch
-fetchData();
+function renderPagination(totalPages) {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (currentPage === 1) {
+        prevBtn.disabled = true;
+    } else {
+        prevBtn.disabled = false;
+    }
+
+    if (currentPage === totalPages) {
+        nextBtn.disabled = true;
+    } else {
+        nextBtn.disabled = false;
+    }
+}
