@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+     let element = <React.Fragment>
+        <p style={{textAlign:"center"}}>React is a javascript library </p>
+        <div style={{
+     textAlign:"center",
+    //  boxShadow: "rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px",      
+      margin: "20px",
+      padding: "20px",
+      border: "1px solid cyan",
+      color: "#00cccc",
+      backgroundColor: "#b33c00",
+    }} class="main">
+         <p>Click the below button to alert 'Hello'</p>
+         <button 
+         style={{
+
+  backgroundColor: "#EA4C89",
+  borderRadius: "8px",
+  borderStyle: "none",
+  boxSizing: "borderBox",
+  color: "#FFFFFF",
+  cursor: "pointer",
+  padding:"10px"
+}}
+
+
+         onClick={()=>alert("Hello")}>Alert Hello</button>
+        </div>
+     </React.Fragment>
+
+     
+
+     let ReactRoot = ReactDOM.createRoot(document.getElementById("root"));
+     ReactRoot.render(element)
+
+     
+    </script>
+  </body>
+</html>
+
